@@ -120,6 +120,7 @@ private:
 
   bool is_inited;
   std::string drone_frame_id;
+  std::string cameracaliburl_front, cameracaliburl_bottom;
 
   // Load auto-generated declarations for full navdata
 #define NAVDATA_STRUCTS_HEADER_PRIVATE

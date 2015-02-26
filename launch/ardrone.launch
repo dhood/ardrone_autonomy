@@ -1,6 +1,8 @@
 <!-- This is a sample lanuch file, please change it based on your needs -->
 <launch>
 	<node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver" output="screen" clear_params="true">
+	    <param name="cameracaliburl_front" value="package://ardone_autonomy/calibrations/ardrone2_front/cal.yml" />
+	    <param name="cameracaliburl_bottom" value="package://ardone_autonomy/calibrations/ardrone2_bottom/cal.yml" />
 	    <param name="outdoor" value="1" />
 	    <param name="max_bitrate" value="4000" />
 	    <param name="bitrate" value="4000" />

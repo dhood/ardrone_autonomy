@@ -90,8 +90,22 @@ ARDroneDriver::ARDroneDriver()
   }
 
   // Camera Info Manager
-  cinfo_hori = new camera_info_manager::CameraInfoManager(ros::NodeHandle("ardrone/front"), "ardrone_front");
-  cinfo_vert = new camera_info_manager::CameraInfoManager(ros::NodeHandle("ardrone/bottom"), "ardrone_bottom");
+  if (private_nh.getParam("~cameracaliburl_front", cameracaliburl_front))
+  {
+    cinfo_hori = new camera_info_manager::CameraInfoManager(ros::NodeHandle("ardrone/front"), 
+                                                            "ardrone_front", cameracaliburl_front);
+  } else {
+    cinfo_hori = new camera_info_manager::CameraInfoManager(ros::NodeHandle("ardrone/front"), "ardrone_front");
+  }
+
+  if (private_nh.getParam("~cameracaliburl_bottom", cameracaliburl_bottom))
+  {
+    cinfo_vert = new camera_info_manager::CameraInfoManager(ros::NodeHandle("ardrone/bottom"), 
+                                                            "ardrone_bottom", cameracaliburl_bottom);
+  } else {
+    cinfo_vert = new camera_info_manager::CameraInfoManager(ros::NodeHandle("ardrone/bottom"), "ardrone_bottom");
+  }
+
 
   // TF Stuff
 

@@ -150,3 +150,8 @@ install(DIRECTORY launch/
     PATTERN ".git" EXCLUDE
 )
 
+install(DIRECTORY calibrations
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+    PATTERN ".git" EXCLUDE
+)
+
